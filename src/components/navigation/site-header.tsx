@@ -8,7 +8,6 @@ import {
 import { useEffect, useState } from 'react'
 
 import { NavigationMenuComponent } from '@/components/ui/custom/navigation-menu'
-import AuthButton from '@/components/ui/custom/auth-button'
 import { Button } from '@/components/ui/button'
 
 import Link from 'next/link'
