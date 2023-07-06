@@ -16,17 +16,22 @@ model Product {
   updatedAt DateTime @updatedAt
   description String @db.VarChar(255)
   price      Float @db.DoublePrecision
-  Suppliers Supplier[]
-  Categories Category[]
-  
 
+  supplier Supplier @relation(fields: [supplierId], references: [id])
+  supplierId Int
+  
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  stock Stock[]
+  orderItem OrderItem[]
 }
 
 model Category {
   id       Int      @id @default(autoincrement())
   name String @db.VarChar(255)
-  product Product @relation(fields: [productId], references: [id])
-  productId Int
+
+  product Product[]
 }
 
 model Supplier {
@@ -34,18 +39,50 @@ model Supplier {
   name String @db.VarChar(255)
   address String @db.VarChar(255)
   phone String @db.VarChar(255)
-  product Product @relation(fields: [productId], references: [id])
-  productId Int
+
+  product Product[]
 }
 
 model Location {
   id       Int      @id @default(autoincrement())
   name String @db.VarChar(255)
   description String @db.VarChar(255)
+
+  stock Stock[]
 }
 
 model Stock {
   id      Int      @id @default(autoincrement())
-  // Products Product @relation(fields: [product_id], references: [id])
 
+  product Product @relation(fields: [productId], references: [id])
+  productId Int
+
+  location Location @relation(fields: [locationId], references: [id])
+  locationId Int
+
+  quantity Int @default(0)
+}
+
+model Order {
+  id      Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  description String @db.VarChar(255)
+
+  orderItem OrderItem[]
+}
+
+model OrderItem {
+  id      Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  description String @db.VarChar(255)
+
+  order Order @relation(fields: [orderId], references: [id])
+  orderId Int
+
+  product Product @relation(fields: [productId], references: [id])
+  productId Int
+
+  quantity Int @default(0)
 }
