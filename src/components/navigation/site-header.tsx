@@ -3,7 +3,6 @@
 import React from 'react'
 import { NavigationMenuComponent } from '@/components/ui/custom/navigation-menu' 
 import {
-  ClerkProvider,
   SignedIn,
   SignedOut,
   SignInButton,
@@ -23,16 +22,7 @@ const SiteHeader = (props: Props) => {
 
             <nav className='flex gap-6 items-center'>
                 <NavigationMenuComponent />
-                <div>
-                <SignedIn>
-                  {/* Mount the UserButton component */}
-                  <UserButton afterSignOutUrl="/"/>
-                </SignedIn>
-                <SignedOut>
-                  {/* Signed out users get sign in button */}
-                  <SignInButton />
-                </SignedOut>
-                </div>
+
             </nav>
         </div>
     </header>
