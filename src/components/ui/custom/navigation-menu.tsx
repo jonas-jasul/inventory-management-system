@@ -2,18 +2,20 @@
 
 import * as React from "react"
 import Link from "next/link"
-
+import {
+  SignedIn,
+} from "@clerk/nextjs";
 import { cn } from "@/lib/utils"
 import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
-  } from "@/components/ui/navigation-menu"
-  
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -107,11 +109,13 @@ export function NavigationMenuComponent() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
-            </NavigationMenuLink>
-          </Link>
+          <SignedIn>
+            <Link href="/docs" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Documentation
+              </NavigationMenuLink>
+            </Link>
+          </SignedIn>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

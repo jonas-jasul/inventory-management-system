@@ -36,7 +36,7 @@ const SiteHeader = (props: Props) => {
           <h4>Logo</h4>
         </div>
 
-        <nav className='flex gap-6 items-center'>
+        <nav className='hidden md:flex gap-6 items-center '>
           <NavigationMenuComponent />
           {isLoaded ? (
             <>

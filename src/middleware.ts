@@ -12,7 +12,7 @@ export default authMiddleware({
     return intlMiddleware(req);
   },
 
-  publicRoutes: ["/", "/:locale/sign-in"],
+  publicRoutes: ["/", "/:locale/sign-in", "/dashboard"],
 });
 
 export const config = {
