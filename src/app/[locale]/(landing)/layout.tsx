@@ -1,7 +1,6 @@
 import {useLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import SiteHeader from '@/components/navigation/site-header';
-import { ClerkProvider } from '@clerk/nextjs'
  
 export default function LocaleLayout({children, params}: {children: React.ReactNode, params: {locale: string}}) {
   const locale = useLocale();
@@ -12,13 +11,12 @@ export default function LocaleLayout({children, params}: {children: React.ReactN
   }
  
   return (
-    <ClerkProvider>
         <html lang={locale}>
         <body>
             <SiteHeader />
             {children}
             </body>
         </html>
-    </ClerkProvider>
+    
   );
 }

@@ -110,9 +110,9 @@ export function NavigationMenuComponent() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <SignedIn>
-            <Link href="/docs" legacyBehavior passHref>
+            <Link href="/dashboard" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
+                Dashboard
               </NavigationMenuLink>
             </Link>
           </SignedIn>
