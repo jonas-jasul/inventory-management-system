@@ -26,6 +26,7 @@ import {
   
 import { BsThreeDotsVertical, BsPlusLg, BsSortDown, BsSortUp } from 'react-icons/bs'
 import { Button } from '@/components/ui/button'
+import { AddCategoryButton } from "@/components/ui/custom/add-category-button"
 
 
 type Props = {}
@@ -46,7 +47,7 @@ const CategoriesPage = (props: Props) => {
                 <div className="flex items-center justify-between p-4 dark:border-gray-700">
                     <div className="flex items-center space-x-4">
                         {/* modal open here */}
-                       
+                        <AddCategoryButton />
                     </div>
                     <div className="flex items-center space-x-4">
                     <Select>
