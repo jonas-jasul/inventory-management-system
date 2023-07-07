@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {
     Table,
     TableBody,
@@ -26,11 +26,13 @@ import {
   
 import { BsThreeDotsVertical, BsPlusLg, BsSortDown, BsSortUp } from 'react-icons/bs'
 import { Button } from '@/components/ui/button'
+import { AddCategoryButton } from "@/components/ui/custom/add-category-button"
 
 
 type Props = {}
 
 const CategoriesPage = (props: Props) => {
+    
     return (
         <div className="p-4 sm:ml-64">
             {/* top menu */}
@@ -44,7 +46,8 @@ const CategoriesPage = (props: Props) => {
                 {/* table */}
                 <div className="flex items-center justify-between p-4 dark:border-gray-700">
                     <div className="flex items-center space-x-4">
-                        <Button size="sm" color="primary">Add Category <BsPlusLg className='ml-2' size={'1.4em'} /></Button>
+                        {/* modal open here */}
+                        <AddCategoryButton />
                     </div>
                     <div className="flex items-center space-x-4">
                     <Select>
